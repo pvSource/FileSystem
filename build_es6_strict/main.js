@@ -28,7 +28,8 @@ class Folder {
         for (let i = 0; i < this.composition.length; i++) {
             console.log(`${' '.repeat(level)} ${this.composition[i].name}`);
             if (this.composition[i].isFolder) {
-                this.composition[i].printComposition(level + 4);
+                let current_folder = this.composition[i];
+                current_folder.printComposition(level + 4);
             }
         }
     }

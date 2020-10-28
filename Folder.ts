@@ -25,7 +25,8 @@ class Folder implements IFileSystemObject {
         for(let i: number = 0; i < this.composition.length; i++) {
             console.log(`${' '.repeat(level)} ${this.composition[i].name}`);
             if (this.composition[i].isFolder) {
-                this.composition[i].printComposition(level+4);
+                let current_folder: Folder = this.composition[i] as Folder;
+                current_folder.printComposition(level+4);
             }
         }
     }

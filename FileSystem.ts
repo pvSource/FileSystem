@@ -1,11 +1,7 @@
-class FileSystem {
-    public main_folder: Folder;
+//class FileSystem extends Folder { //extends Folder {
 
-    constructor(main_folder: Folder) {
-        this.main_folder = main_folder;
-    }
+    //constructor(name: string) {
+     //   super(name);
+    //}
     
-    printAll(): void {
-        for(let i: number = 0; i < this.main_folder.composition.length; i++){//}
-    }
-}
+//}

@@ -1,4 +1,4 @@
-class Folder implements IFileSystemObject {
+export default class Folder implements IFileSystemObject {
     public name: string;
     public composition: Array <IFileSystemObject> = [];
     readonly isFolder: boolean = true;

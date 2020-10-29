@@ -1,7 +1,8 @@
-//class FileSystem extends Folder { //extends Folder {
+import * as Folder from './Folder';
 
-    //constructor(name: string) {
-     //   super(name);
-    //}
+class FileSystem extends Folder {
+    constructor() {
+        super(name);
+    }
     
-//}
+}

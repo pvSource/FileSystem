@@ -4,8 +4,7 @@
         "removeComments": true,
         "outDir": "./build_es6_strict",
         "sourceMap": true,
-        "outFile": "./build_es6_strict/main.js",
         "alwaysStrict": true,
-        "module": "amd"
+        "module": "CommonJS"
     }
 }

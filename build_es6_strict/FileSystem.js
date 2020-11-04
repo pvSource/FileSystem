@@ -1,14 +1,25 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const Folder_1 = require("./Folder");
-class FileSystem extends Folder_1.default {
-    constructor(name) {
-        super(name);
+const MementoReal_1 = require("./MementoReal");
+class FileSystem {
+    constructor(name, root_folder) {
+        this.root_folder = new Folder_1.default("root");
+        this.name = name;
+        if (root_folder) {
+            this.root_folder = root_folder;
+        }
     }
-    clone() {
-        let clone_fs = new FileSystem(this.name);
-        Object.assign(clone_fs.composition, this.composition);
-        return clone_fs;
+    printComposition() {
+        console.log("===== " + this.name + " =====");
+        this.root_folder.printComposition();
+    }
+    createMemento() {
+        return new MementoReal_1.default(this.root_folder.clone());
+    }
+    restoreMemento(snapshot) {
+        this.root_folder = snapshot.root_folder;
     }
 }
+exports.default = FileSystem;
 //# sourceMappingURL=FileSystem.js.map

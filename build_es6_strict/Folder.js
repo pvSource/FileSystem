@@ -19,12 +19,21 @@ class Folder {
     }
     printComposition(level = 0) {
         for (let i = 0; i < this.composition.length; i++) {
-            console.log(`${' '.repeat(level)} ${this.composition[i].name}`);
+            console.log(`${' '.repeat(level)} ${this.composition[i].name}${(this.composition[i].isFolder) ? '/' : ''}`);
             if (this.composition[i].isFolder) {
                 let current_folder = this.composition[i];
                 current_folder.printComposition(level + 4);
             }
         }
+    }
+    clone() {
+        let clone_folder = new Folder(this.name);
+        if (this.composition != []) {
+            for (let i = 0; i < this.composition.length; i++) {
+                clone_folder.composition[i] = this.composition[i].clone();
+            }
+        }
+        return clone_folder;
     }
 }
 exports.default = Folder;

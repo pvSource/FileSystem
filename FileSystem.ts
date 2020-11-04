@@ -1,15 +1,31 @@
 import Folder from './Folder';
+import MementoReal from './MementoReal';
+import SnapshotMemento from './SnapshotMemento'
 
-class FileSystem extends Folder {
-    constructor(name) {
-        super(name);
-    }
+class FileSystem {
+    public name: string;
+    public root_folder: Folder = new Folder("root");
 
-    clone(): FileSystem { // Добавить :FileSystem просто пока выпадает ошибка
-        let clone_fs = new FileSystem(this.name);
-        //clone_fs.composition = this.composition; //так скопируются только ссылки на обьекты, а не сам обьект
-        Object.assign(clone_fs.composition, this.composition); //вопрос, в том будут ли клонированнные обьекты соответствовать классам изначального? И произойдет ли глубокое клонирование
-        return clone_fs;
+    constructor(name: string, root_folder?: Folder) {
+        this.name = name;
+        if (root_folder) {
+            this.root_folder = root_folder;
+        }
     }
     
+    printComposition(): void {
+        console.log("===== "+this.name+" =====");
+        this.root_folder.printComposition();
+    }
+
+    createMemento(): SnapshotMemento {
+        return new MementoReal(this.root_folder.clone());
+    }
+
+    restoreMemento(snapshot: SnapshotMemento) {
+        this.root_folder = snapshot.root_folder;
+    }
+
 }
+
+export default FileSystem;

@@ -18,12 +18,9 @@ class Folder {
         return this.composition;
     }
     printComposition(level = 0) {
+        console.log(`${' '.repeat(level)}${this.name}`);
         for (let i = 0; i < this.composition.length; i++) {
-            console.log(`${' '.repeat(level)} ${this.composition[i].name}${(this.composition[i].isFolder) ? '/' : ''}`);
-            if (this.composition[i].isFolder) {
-                let current_folder = this.composition[i];
-                current_folder.printComposition(level + 4);
-            }
+            this.composition[i].printComposition(level + 4);
         }
     }
     clone() {

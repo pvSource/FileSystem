@@ -6,8 +6,8 @@ class DataFile implements IFileSystemObject {
         this.name = name;
     }
 
-    printComposition(): void {
-        //это заглушка чтобы в FileSystem пока работало
+    printComposition(level: number = 0): void {
+        console.log(`${' '.repeat(level)}${this.name}`);
     }
 
     clone(): DataFile {

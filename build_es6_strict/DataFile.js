@@ -5,7 +5,8 @@ class DataFile {
         this.isFolder = false;
         this.name = name;
     }
-    printComposition() {
+    printComposition(level = 0) {
+        console.log(`${' '.repeat(level)}${this.name}`);
     }
     clone() {
         let clone_data_file = new DataFile(this.name);

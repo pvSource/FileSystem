@@ -22,16 +22,13 @@ export default class Folder implements IFileSystemObject {
     getComposition(): Array <IFileSystemObject> {
         return this.composition;
     }
-    
+
     printComposition(level: number = 0): void {
+        console.log(`${' '.repeat(level)}${this.name}`)       
         for(let i: number = 0; i < this.composition.length; i++) {
-            console.log(`${' '.repeat(level)} ${this.composition[i].name}${(this.composition[i].isFolder) ? '/' : ''}`);
-            if (this.composition[i].isFolder) {
-                let current_folder: Folder = this.composition[i] as Folder;
-                current_folder.printComposition(level+4);
-            }
-        }
+            this.composition[i].printComposition(level + 4);
     }
+}
 
     clone(): Folder {
         let clone_folder = new Folder(this.name);

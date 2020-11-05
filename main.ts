@@ -2,6 +2,7 @@ import Folder from './Folder';
 import DataFile from './DataFile';
 import FileSystem from './FileSystem';
 import snaphot_storage from './SnapshotStorage';
+import MementoReal from './MementoReal';
 
 let fs = new FileSystem("C");
 
@@ -36,6 +37,6 @@ console.log("fs после перезаписи\n================\n");
 
 
 
-fs.restoreMemento(snaphot_storage.getLastSnapshot());
+fs.restoreMemento(snaphot_storage.getLastSnapshot() as MementoReal);
 fs.printComposition();
 console.log("fs после восстановления из снапа");

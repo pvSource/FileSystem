@@ -37,6 +37,6 @@ console.log("fs после перезаписи\n================\n");
 
 
 
-fs.restoreMemento(snaphot_storage.getLastSnapshot() as MementoReal);
+fs.restoreMemento(snaphot_storage.getLastSnapshot());
 fs.printComposition();
 console.log("fs после восстановления из снапа");

@@ -18,7 +18,7 @@ class FileSystem {
         return new MementoReal_1.default(this.root_folder.clone());
     }
     restoreMemento(snapshot) {
-        this.root_folder = snapshot.root_folder;
+        this.root_folder = snapshot.root_folder.clone();
     }
 }
 exports.default = FileSystem;

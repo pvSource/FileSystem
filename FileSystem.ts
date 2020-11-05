@@ -23,7 +23,7 @@ class FileSystem {
     }
 
     restoreMemento(snapshot: SnapshotMemento) {
-        this.root_folder = snapshot.root_folder;
+        this.root_folder = snapshot.root_folder.clone();
     }
 
 }

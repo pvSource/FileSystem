@@ -18,11 +18,11 @@ class FileSystem {
         this.root_folder.printComposition();
     }
 
-    createMemento(): SnapshotMemento {
+    createMemento(): MementoReal {
         return new MementoReal(this.root_folder.clone());
     }
 
-    restoreMemento(snapshot: SnapshotMemento) {
+    restoreMemento(snapshot: MementoReal) {
         this.root_folder = snapshot.root_folder.clone();
     }
 
